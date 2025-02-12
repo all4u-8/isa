@@ -34,6 +34,14 @@
             position: relative;
             z-index: 10;
             transition: opacity 1s ease-out;
+        }        
+        .message2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 5px;
+            position: relative;
+            z-index: 10;
+            transition: opacity 1s ease-out;
         }
         .lyrics {
             font-size: 28px;
@@ -208,7 +216,7 @@ yesBtn.addEventListener("click", function() {
                 document.querySelector(".buttons").classList.add("hidden");
 
                 setTimeout(() => {
-                    document.body.innerHTML += '<div class="message">Lamento que no quieras ser mi Valentín, me esforzaré para que eso cambie</div>';
+                    document.body.innerHTML += '<div class="message2">Lamento que no quieras ser mi Valentín, me esforzaré para que eso cambie</div>';
                 }, 1000);
             }
         });
