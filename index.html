@@ -17,7 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 250px;
+            margin-top: 150px;
             position: relative;
             z-index: 10;
         }
@@ -175,7 +175,7 @@ function showLyrics() {
     let line = lyrics.find(lyric => lyric.time === currentTime);
     if (line) {
         lyricsMessage.innerText = line.text;
-        lyricsMessage.style.fontSize = "4rem"; // Aumenta el tamaño del texto
+        lyricsMessage.style.fontSize = "3rem"; // Aumenta el tamaño del texto
         lyricsMessage.style.fontWeight = "bold"; // Hace que el texto sea más grueso
         lyricsMessage.style.textAlign = "center"; // Centra el texto
         lyricsMessage.style.padding = "10px"; // Espaciado para mejor visibilidad
