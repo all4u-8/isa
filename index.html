@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            background-color: pink;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 250px;
+            position: relative;
+            z-index: 10;
+        }
+        .image-container img {
+            width: 200px;
+            height: auto;
+            margin: 0 20px;
+            transition: opacity 1s ease-out;
+        }
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 50px;
+            position: relative;
+            z-index: 10;
+            transition: opacity 1s ease-out;
+        }
+        .lyrics {
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            text-align: center;
+            z-index: 10;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        #yesBtn {
+            background-color: #8a69ff;
+            color: white;
+        }
+        #noBtn {
+            background-color: #b000d363;
+            color: white;
+        }
+        .hidden {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+        .lotus {
+            position: absolute;
+            top: -100px;
+            width: 50px;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(100vh) translateX(50px); }
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="src/cancion1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="container" id="contentContainer">
+        <div class="image-container">
+            <img id="jotaImg" src="src/jota.png" alt="Jota">
+        </div>
+        <div class="image-container">
+            <img id="isaImg" src="src/isa.png" alt="Isa">
+        </div>
+    </div>
+    
+    <div class="message" id="questionMessage">¿Quieres ser mi San Valentín?</div>
+    
+    <div class="buttons">
+        <button id="yesBtn">Sí</button>
+        <button id="noBtn">No</button>
+    </div>
+    
+    <div class="lyrics" id="lyricsMessage"></div>
+
+    <script>
+        let music = document.getElementById("backgroundMusic");
+        let yesBtn = document.getElementById("yesBtn");
+        let noBtn = document.getElementById("noBtn");
+        let questionMessage = document.getElementById("questionMessage");
+        let contentContainer = document.getElementById("contentContainer");
+        let lyricsMessage = document.getElementById("lyricsMessage");
+        let noCount = 0;
+
+        music.volume = 0.6;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            music.play().catch(() => {
+                console.log("Reproducción automática bloqueada, esperando interacción del usuario.");
+            });
+            for (let i = 0; i < 20; i++) {
+                let lotus = document.createElement("img");
+                lotus.src = "src/loto.png";
+                lotus.classList.add("lotus");
+                lotus.style.left = Math.random() * window.innerWidth + "px";
+                lotus.style.width = (Math.random() * 50 + 30) + "px";
+                lotus.style.animationDuration = (Math.random() * 5 + 5) + "s";
+                document.body.appendChild(lotus);
+            }
+        });
+
+        let lyrics = [
+    { time: 2, text: "Gracias por ser mi San Valentín" },
+    { time: 14, text: "Y si te parece que yo estoy enamorado tuyo" },
+    { time: 20, text: "Eso es un invento, intuyo, no des crédito a murmullos" },
+    { time: 25, text: "Porque casi nunca llamo para decir que te amo" },
+    { time: 30, text: "Y más de una vez lo hice a un número equivocado" },
+    { time: 35, text: "Casi nunca nadie dice que yo estoy enamorado tuyo" },
+    { time: 45, text: "Raramente desespero por tenerte aquí a mi lado" },
+    { time: 50, text: "Y eso no significa que tenga un significado" },
+    { time: 55, text: "Si pensás que amor yo siento, por favor no hagas pamento" },
+    { time: 60, text: "No comentes con tu gente, sobre nuestro asunto" },
+    { time: 65, text: "Casi nunca nadie dice que yo estoy enamorado tuyo" },
+    { time: 75, text: "No te vistas, no te hagas la nunca vista" },
+    { time: 80, text: "Tengo en lista a cantarte un 'hasta la vista'" },
+    { time: 85, text: "No te vistas, no te hagas la nunca vista" },
+    { time: 90, text: "Tengo lista una canción que dice 'hasta la vista, señorita'" },
+    { time: 107, text: "Casi nunca veo la foto tuya en mi celular" },
+    { time: 112, text: "Sigue ahí por la pereza que me da apretar 'borrar'" },
+    { time: 117, text: "No estoy tan obsesionado, vale como aclaración" },
+    { time: 122, text: "Si pensás que es por eso que yo canto esta canción" },
+    { time: 128, text: "Casi nunca nadie dice que yo estoy enamorado tuyo" },
+    { time: 137, text: "No te vistas, no te hagas la nunca vista" },
+    { time: 142, text: "Tengo en lista a cantarte un 'hasta la vista'" },
+    { time: 147, text: "No te vistas, no te hagas la nunca vista" },
+    { time: 153, text: "Tengo lista una canción que dice 'hasta la vista, señorita'" },
+    { time: 160, text: "Y si te parece que yo estoy enamorado tuyo" },
+    { time: 165, text: "Eso es un invento, intuyo, no des crédito a murmullos" },
+    { time: 170, text: "Porque casi nunca llamo para decir que te amo" },
+    { time: 175, text: "Y más de una vez lo hice a un número equivocado" },
+    { time: 180, text: "Casi nunca nadie dice que yo estoy enamorado tuyo" },
+    { time: 190, text: "No te vistas, no te hagas la nunca vista" },
+    { time: 195, text: "Tengo en lista a cantarte un 'hasta la vista'" },
+    { time: 200, text: "No te vistas, no te hagas la nunca vista" },
+    { time: 205, text: "Tengo lista una canción que dice 'hasta la vista, señorita'" }
+];
+
+function showLyrics() {
+    let currentTime = Math.floor(music.currentTime);
+    let line = lyrics.find(lyric => lyric.time === currentTime);
+    if (line) {
+        lyricsMessage.innerText = line.text;
+        lyricsMessage.style.fontSize = "4rem"; // Aumenta el tamaño del texto
+        lyricsMessage.style.fontWeight = "bold"; // Hace que el texto sea más grueso
+        lyricsMessage.style.textAlign = "center"; // Centra el texto
+        lyricsMessage.style.padding = "10px"; // Espaciado para mejor visibilidad
+    }
+    requestAnimationFrame(showLyrics);
+}
+
+yesBtn.addEventListener("click", function() {
+    music.pause();
+    music.src = "src/cancion2.mp3";
+    music.play();
+    contentContainer.style.opacity = "0";
+    questionMessage.style.opacity = "0";
+    document.querySelector(".buttons").classList.add("hidden");
+    showLyrics();
+});
+
+
+        noBtn.addEventListener("click", function() {
+            noCount++;
+            yesBtn.style.transform = `scale(${1 + noCount * 0.2})`;
+
+            if (noCount >= 4) {
+                music.pause();
+                music.src = "src/cancion3.mp3";
+                music.play();
+                contentContainer.style.opacity = "0";
+                questionMessage.style.opacity = "0";
+                document.body.style.backgroundColor = "#ecc9e1";
+                document.querySelector(".buttons").classList.add("hidden");
+
+                setTimeout(() => {
+                    document.body.innerHTML += '<div class="message">Lamento que no quieras ser mi Valentín, me esforzaré para que eso cambie</div>';
+                }, 1000);
+            }
+        });
+
+    </script>
+</body>
+</html>
