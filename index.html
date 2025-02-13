@@ -36,7 +36,7 @@
             transition: opacity 1s ease-out;
         }        
         .message2 {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: bold;
             margin-top: 5px;
             position: relative;
@@ -61,7 +61,7 @@
         }
         button {
             padding: 10px 20px;
-            font-size: 18px;
+            font-size: 40px;
             margin: 10px;
             cursor: pointer;
             border: none;
@@ -116,7 +116,82 @@
     
     <div class="lyrics" id="lyricsMessage"></div>
 
+    <div class="music-controls">
+        <button id="playPauseBtn">></button>
+    </div>
+    
+    <style>
+        .music-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+    
+        #playPauseBtn {
+            background-color: #ff69b4;
+            color: white;
+            padding: 40px;
+            font-size: 24px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        #playPauseBtn:hover {
+            background-color: #5100d3;
+        }
+    </style>
+    
     <script>
+        let playPauseBtn = document.getElementById("playPauseBtn");
+    
+        playPauseBtn.addEventListener("click", function () {
+            if (music.paused) {
+                music.play();
+                playPauseBtn.innerText = "||";
+            } else {
+                music.pause();
+                playPauseBtn.innerText = ">";
+            }
+        });
+    </script>
+    
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    function animateImage(imageId) {
+        let img = document.getElementById(imageId);
+        let position = 0;
+        let direction = 1;
+        let angle = 0;
+        let rotateDirection = 1;
+
+        function move() {
+            position += direction * 0.5; // Movimiento horizontal más lento
+            angle += rotateDirection * 0.5; // Movimiento de rotación más fluido
+
+            if (position > 20 || position < -20) {
+                direction *= -1; // Cambia dirección horizontal
+            }
+
+            if (angle > 15 || angle < -15) {
+                rotateDirection *= -1; // Cambia dirección de rotación
+            }
+
+            img.style.transform = `translateX(${position}px) rotate(${angle}deg)`;
+            requestAnimationFrame(move); // Movimiento fluido sin retraso perceptible
+        }
+        move();
+    }
+
+    animateImage("jotaImg");
+    animateImage("isaImg");
+});
+
         let music = document.getElementById("backgroundMusic");
         let yesBtn = document.getElementById("yesBtn");
         let noBtn = document.getElementById("noBtn");
@@ -143,50 +218,47 @@
         });
 
         let lyrics = [
-    { time: 2, text: "Gracias por ser mi San Valentín" },
-    { time: 14, text: "Y si te parece que yo estoy enamorado tuyo" },
-    { time: 20, text: "Eso es un invento, intuyo, no des crédito a murmullos" },
-    { time: 25, text: "Porque casi nunca llamo para decir que te amo" },
-    { time: 30, text: "Y más de una vez lo hice a un número equivocado" },
-    { time: 35, text: "Casi nunca nadie dice que yo estoy enamorado tuyo" },
-    { time: 45, text: "Raramente desespero por tenerte aquí a mi lado" },
-    { time: 50, text: "Y eso no significa que tenga un significado" },
-    { time: 55, text: "Si pensás que amor yo siento, por favor no hagas pamento" },
-    { time: 60, text: "No comentes con tu gente, sobre nuestro asunto" },
-    { time: 65, text: "Casi nunca nadie dice que yo estoy enamorado tuyo" },
-    { time: 75, text: "No te vistas, no te hagas la nunca vista" },
-    { time: 80, text: "Tengo en lista a cantarte un 'hasta la vista'" },
-    { time: 85, text: "No te vistas, no te hagas la nunca vista" },
-    { time: 90, text: "Tengo lista una canción que dice 'hasta la vista, señorita'" },
-    { time: 107, text: "Casi nunca veo la foto tuya en mi celular" },
-    { time: 112, text: "Sigue ahí por la pereza que me da apretar 'borrar'" },
-    { time: 117, text: "No estoy tan obsesionado, vale como aclaración" },
-    { time: 122, text: "Si pensás que es por eso que yo canto esta canción" },
-    { time: 128, text: "Casi nunca nadie dice que yo estoy enamorado tuyo" },
-    { time: 137, text: "No te vistas, no te hagas la nunca vista" },
-    { time: 142, text: "Tengo en lista a cantarte un 'hasta la vista'" },
-    { time: 147, text: "No te vistas, no te hagas la nunca vista" },
-    { time: 153, text: "Tengo lista una canción que dice 'hasta la vista, señorita'" },
-    { time: 160, text: "Y si te parece que yo estoy enamorado tuyo" },
-    { time: 165, text: "Eso es un invento, intuyo, no des crédito a murmullos" },
-    { time: 170, text: "Porque casi nunca llamo para decir que te amo" },
-    { time: 175, text: "Y más de una vez lo hice a un número equivocado" },
-    { time: 180, text: "Casi nunca nadie dice que yo estoy enamorado tuyo" },
-    { time: 190, text: "No te vistas, no te hagas la nunca vista" },
-    { time: 195, text: "Tengo en lista a cantarte un 'hasta la vista'" },
-    { time: 200, text: "No te vistas, no te hagas la nunca vista" },
-    { time: 205, text: "Tengo lista una canción que dice 'hasta la vista, señorita'" }
-];
+    { time: 3, text: "GRACIAS POR SER MI SAN VALENTÍN" },
+    { time: 21, text: "HOY DESPERTÉ CON GANAS DE BESARTE" },
+    { time: 29, text: "TENGO UNA SED DE ACARICIARTE" },
+    { time: 33, text: "ENREDARME A TI, Y NO SOLTARTE" },
+    { time: 39, text: "ERES TAN EMBRIAGANTE" },
+    { time: 45, text: "ERES TÚ, ERES TÚ" },
 
+    { time: 51, text: "QUIERO CONTEMPLARTE SIN CONTAR EL TIEMPO" },
+    { time: 59, text: "DIBUJARTE CON MIS PUROS RECUERDOS" },
+    { time: 63, text: "EN MI MENTE MARCARME TUS LABIOS, TUS BESOS" },
+    { time: 69, text: "ESTAR AQUÍ OTRO MOMENTO" },
+    { time: 73, text: "ERES TÚ (x3)" },
+
+    { time: 93, text: "ME ENCANTA VERTE, TENERTE, ABRAZARTE" },
+    { time: 100, text: "CUANDO ESTOY A UN LADO DE TI" },
+    { time: 104, text: "TODO LO BUENO DE MÍ FLORECE, ERES TÚ" },
+    { time: 110, text: "ESE IMÁN DE UNA PRECIOSA ENERGÍA" },
+
+    { time: 116, text: "ES TU ALMA QUE ENVÍA SEÑALES A MI CUERPO" },
+    { time: 123, text: "PORQUE ESTE SIGUE PIDIENDO ESE AROMA DE TI" },
+    { time: 130, text: "QUE ME INVITA AL ACECHO" },
+    { time: 134, text: "ERES TÚ (x3)" },
+
+    { time: 155, text: "TENEMOS PLANES DIFERENTES" },
+    { time: 160, text: "PERO TÚ SIEMPRE EN MI MENTE" },
+    { time: 172, text: "PUES MIS VENAS TAN SUTILMENTE" },
+    { time: 175, text: "DISFRUTAN TANTO QUERERTE" },
+    { time: 180, text: "ERES TÚ, ERES TÚ" },
+    { time: 196, text: "ERES TÚ, ERES TÚ, ERES TÚ" }
+];
 function showLyrics() {
     let currentTime = Math.floor(music.currentTime);
     let line = lyrics.find(lyric => lyric.time === currentTime);
     if (line) {
         lyricsMessage.innerText = line.text;
-        lyricsMessage.style.fontSize = "3rem"; // Aumenta el tamaño del texto
-        lyricsMessage.style.fontWeight = "bold"; // Hace que el texto sea más grueso
-        lyricsMessage.style.textAlign = "center"; // Centra el texto
-        lyricsMessage.style.padding = "10px"; // Espaciado para mejor visibilidad
+        lyricsMessage.style.fontSize = "2.5rem"; // Letra más grande
+        lyricsMessage.style.fontWeight = "bold"; // Negrita
+        lyricsMessage.style.fontStyle = "italic"; // Cursiva
+        lyricsMessage.style.textTransform = "uppercase"; // Mayúsculas
+        lyricsMessage.style.textAlign = "center"; // Centrar
+        lyricsMessage.style.padding = "15px"; // Espaciado adicional
     }
     requestAnimationFrame(showLyrics);
 }
