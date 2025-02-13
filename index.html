@@ -36,14 +36,22 @@
             transition: opacity 1s ease-out;
         }        
         .message2 {
-            font-size: 15px;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-left: 20%;
-            position: absolute;
-            z-index: 10;
-            transition: opacity 1s ease-out;
-        }
+    font-size: 18px;
+    font-weight: bold;
+    position: fixed; /* Se mantiene fijo en la parte superior */
+    top: 10px; /* Se posiciona en la parte superior */
+    left: 50%; /* Se centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta el centro */
+    width: 100%; /* Ocupará todo el ancho de la pantalla */
+    text-align: center; /* Texto centrado */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    color: white; /* Color del texto */
+    padding: 10px 0; /* Espaciado interno arriba y abajo */
+    z-index: 1000; /* Asegura que se mantenga visible sobre otros elementos */
+
+
+}
+
         .lyrics {
             font-size: 28px;
             font-weight: bold;
@@ -131,10 +139,10 @@
         }
     
         #playPauseBtn {
-            background-color: #ff69b4;
+            background-color: #a369ff;
             color: white;
-            padding: 30px;
-            font-size: 20px;
+            padding: 27px;
+            font-size: 18px;
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -142,7 +150,7 @@
         }
     
         #playPauseBtn:hover {
-            background-color: #5100d3;
+            background-color: #57358d94;
         }
     </style>
     
