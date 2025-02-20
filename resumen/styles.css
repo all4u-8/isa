@@ -1,0 +1,94 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: url('https://static.vecteezy.com/system/resources/previews/022/192/426/non_2x/modern-purple-gradient-great-for-covers-branding-wallpapers-social-media-and-more-can-be-used-for-web-and-print-free-vector.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar con efecto Glassmorfismo */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li button {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar ul li button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Contenedor principal */
+.container {
+    margin-top: 80px; /* Espacio suficiente para que el navbar no cubra el contenido */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilos de las secciones */
+.info-section {
+    display: none;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    margin: 80px auto;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: black;
+    text-align: left;
+}
+
+/* Ajuste para hacer que la información cargue desde la parte superior */
+html, body {
+    scroll-behavior: smooth;
+}
+
+/* Imágenes de comidas típicas */
+.food-images img {
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

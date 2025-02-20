@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivir 100 Años</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Vivir 100 Años</h1>
+        <ul>
+            <li><button onclick="toggleSection('resumen')">Resumen</button></li>
+            <li><button onclick="toggleSection('estadisticas')">Estadísticas</button></li>
+            <li><button onclick="toggleSection('demencia')">Demencia</button></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="resumen" class="info-section">
+            <h2>Resumen General</h2>
+            <p>Vivir 100 años: Los secretos de las zonas azules" es una serie documental de Netflix en la que el escritor e investigador Dan Buettner explora cinco regiones del mundo conocidas por la longevidad y bienestar de sus habitantes. Estas áreas, denominadas "zonas azules", incluyen Okinawa (Japón), Cerdeña (Italia), Loma Linda (California, EE.UU.), Icaria (Grecia) y la península de Nicoya (Costa Rica). A lo largo de cuatro episodios, Buettner analiza los factores comunes que contribuyen a una vida larga y saludable en estas comunidades.</p>
+        <h2>Episodio 1 Empieza el viaje</h2><p>Buettner viaja a Okinawa, Japón, donde los habitantes más ancianos llevan un estilo de vida apacible basado en un sentido de propósito conocido como "ikigai". Además, su dieta rica en vegetales y la fuerte conexión comunitaria son aspectos destacados que contribuyen a su longevidad.</p>
+        <h2>Episodio 2 Un descubrimiento inesperado</h2><p>Este episodio se centra en Cerdeña, Italia, y Loma Linda, California. En los pueblos montañosos de Cerdeña, la dieta mediterránea y la actividad física diaria son clave para una vida prolongada. En Loma Linda, una comunidad de adventistas del séptimo día practica hábitos saludables y mantiene una fuerte fe religiosa, lo que se refleja en su notable esperanza de vida.</p>
+        <h2>Episodio 3 ¿El fin de las zonas azules?</h2><p>Buettner explora la isla de Icaria en Grecia y la península de Nicoya en Costa Rica. En Icaria, la dieta basada en alimentos frescos y locales, junto con un estilo de vida relajado, contribuye a una baja incidencia de enfermedades crónicas. En Nicoya, las tradiciones familiares y una dieta rica en maíz y frijoles son factores determinantes en la longevidad de sus habitantes.</p>
+        <h2>Episodio 3 El futuro de la longevidad</h2><p>En el episodio final, Buettner visita Singapur para analizar cómo las políticas gubernamentales y el diseño urbano pueden influir en la salud pública. Posteriormente, comparte sus hallazgos en Estados Unidos, evaluando la posibilidad de crear nuevas "zonas azules" mediante la implementación de cambios en el entorno y los hábitos de vida.</p>
+    <h1> </h1><H2>La serie destaca cuatro pilares fundamentales presentes en todas las zonas azules :</H2>
+    <ul>
+        <li>Movimiento natural: Incorporar actividad física moderada en la rutina diaria.</li>
+        <li>Perspectiva: Mantener un sentido de propósito y una visión positiva de la vida.</li>
+        <li>Alimentación sabia: Seguir una dieta mayormente basada en plantas y practicar la moderación en las porciones.</li>
+        <li>Conexión: Fomentar relaciones sociales sólidas y participar en comunidades de apoyo.</li>
+      </ul>
+      <p>Estos elementos, combinados, parecen ser la clave para una vida larga y saludable en las zonas azules.</p>
+    </div>
+        <div id="estadisticas" class="info-section">
+            <h2>Estadísticas y Alimentación</h2>
+            <h3>Dieta Basada en Plantas:</h3>
+            <p>En las zonas azules, la alimentación se compone en un 95-100% de alimentos de origen vegetal, incluyendo una variedad de verduras, frutas, legumbres y cereales integrales</p>
+            <h3>Consumo de Legumbres:</h3><p>Los centenarios de estas regiones consumen al menos entre media y una taza de legumbres diariamente, lo que aporta proteínas y fibra esenciales para la salud.</p>
+            <h3>Actividad Física Natural:</h3><p>Las personas en las zonas azules incorporan el movimiento en su vida diaria a través de actividades como caminar, jardinería y tareas domésticas, en lugar de realizar ejercicios estructurados.</p>
+            <h3>Conexiones Sociales Fuertes:</h3><p>Mantener relaciones sociales sólidas y participar en comunidades de apoyo es común en estas regiones, lo que contribuye al bienestar emocional y físico.</p>
+            <h3>Consumo de Legumbres:</h3><p></p>
+            <br>
+            <h3>Esperanza de vida en cada región</h3>
+            <canvas id="chartLongevidad"></canvas>
+            <script>
+                const ctx = document.getElementById('chartLongevidad').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Okinawa', 'Cerdeña', 'Loma Linda', 'Icaria', 'Nicoya'],
+                        datasets: [{
+                            label: 'Esperanza de vida en años',
+                            data: [84, 82, 87, 83, 85],
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                        }]
+                    }
+                });
+            </script>
+            <h2>Imágenes de Comidas Típicas</h2>
+            <div class="food-images">
+                <!-- Comida de Okinawa -->
+                 <h3>Comida de Okinawa</h3>
+                 <h4>Alimentación:</h4>
+                 <p> La dieta tradicional de Okinawa se basa en alimentos como el boniato okinawense, la soja, la artemisa, la cúrcuma y el goya (melón amargo). Esta alimentación es rica en nutrientes y baja en calorías, lo que contribuye a la salud y longevidad de sus habitantes.</p>
+                
+                <img src="https://www.estarguapas.com/pics/2020/12/que-es-la-dieta-de-okinawa-aqui-esta-todo-lo-que-necesitas-saber.jpg" alt="Soba de Okinawa" width="100%">
+                <h4>Longevidad:</h4><p>Okinawa alberga a las mujeres más longevas del mundo. La combinación de su dieta, actividad física regular y fuertes lazos comunitarios se asocia con una vida prolongada y saludable.</p>
+                <br>
+                <h3>Comida de Cerdeña</h3>
+                <h4>Alimentación:</h4>
+                <p>Los habitantes de la región de Ogliastra en Cerdeña siguen una dieta mediterránea rica en verduras, legumbres y grasas saludables, con un consumo moderado de productos lácteos y carnes. Este patrón alimenticio se asocia con una menor incidencia de enfermedades crónicas.</p>
+                
+                <!-- Comida de Cerdeña -->
+                <img src="https://thumbs.dreamstime.com/b/frijoles-frescos-de-dimensiones-peque%C3%B1as-t%C3%ADpicas-cerde%C3%B1a-la-sardinia-meridional-268442448.jpg" alt="Culurgiones de Cerdeña" width="100%">
+                <h4>Longevidad:</h4><p>Cerdeña tiene la mayor concentración de hombres centenarios en el mundo. Además de la dieta, factores como la actividad física diaria y una fuerte cohesión social contribuyen a la longevidad de sus habitantes.</p>
+                <br>
+                <h3>Comida de Loma Linda</h3>
+                <h4>Alimentación:</h4>
+                <p>La comunidad adventista del séptimo día en Loma Linda sigue una dieta mayormente vegetariana, rica en frutas, verduras, legumbres y frutos secos. Evitan el consumo de alcohol y tabaco, y promueven hábitos de vida saludables.</p>
+                
+                <!-- Comida de Loma Linda -->
+                <img src="https://3.bp.blogspot.com/_m4D2cLWEk-I/R_r4q7OrXkI/AAAAAAAAADo/g-2Piv_nzdU/w1200-h630-p-k-no-nu/Vegetarian_diet.jpg" alt="Plato vegetariano de Loma Linda" width="100%">
+                <h4>Longevidad:</h4><p>Los adventistas del séptimo día en Loma Linda tienen una esperanza de vida notablemente alta en comparación con otros estadounidenses, atribuida a su estilo de vida saludable y prácticas dietéticas.</p>
+                <br>
+                <h3>Comida de Icaria</h3>
+                <h4>Alimentación:</h4>
+                <p>La dieta de los habitantes de Icaria es similar a la mediterránea, incluyendo alimentos básicos como aceite de oliva, vino tinto, pescado, infusiones de hierbas, miel no pasteurizada, garbanzos, guisantes y lentejas, con cantidades limitadas de carne, azúcar y productos lácteos.</p>
+                
+                <!-- Comida de Icaria -->
+                <img src="https://static1.mujerhoy.com/www/multimedia/202002/14/media/cortadas/icaria-grecia-k0bE-U100150650008peG-624x936%40MujerHoy.jpg" alt="Plato tradicional de Icaria" width="100%">
+                <h4>Longevidad:</h4><p>Uno de cada tres icariotas llega a los 90 años y tienden a vivir 10 años más que el resto de los habitantes de Europa y América. Además, presentan tasas más bajas de enfermedades cardíacas y demencia.</p>
+                <br>
+                <h3>Comida de Nicoya</h3>
+                <h4>Alimentación:</h4>
+                <p>La dieta en Nicoya se basa en alimentos tradicionales como el maíz, los frijoles y una variedad de frutas y verduras frescas. Este patrón alimenticio proporciona una alta ingesta de nutrientes esenciales y antioxidantes.</p>
+            
+                <!-- Comida de Nicoya -->
+                <img src="https://i0.wp.com/thetaste.ie/wp/wp-content/uploads/2016/02/Japanese-Food-9-e1456486321357.jpg?resize=640%2C340" alt="Comida tradicional de Nicoya" width="100%">
+                <h4>Longevidad:</h4><p>Los habitantes de Nicoya tienen una esperanza de vida superior a la de Japón, con una alta concentración de personas que superan los 100 años. Factores como la dieta, la actividad física regular y fuertes lazos familiares contribuyen a esta notable longevidad.</p>
+            </div>
+            
+        </div>
+        <div id="demencia" class="info-section">
+            <h2>Índices de Demencia</h2>
+            <h3>Icaria, Grecia</h3>
+            <p>Esta isla del mar Egeo tiene una de las tasas más bajas del mundo de mortalidad y demencia en la mediana edad.</p>
+            <p>Factores contribuyentes: La longevidad y la baja incidencia de demencia en Icaria se asocian con una dieta mediterránea rica en verduras y grasas saludables, junto con una menor ingesta de productos lácteos y cárnicos.</p>
+            <h3>Okinawa, Japón</h3>
+            <p>Los habitantes de Okinawa presentan menores tasas de arteriosclerosis y cáncer de estómago, así como un bajo riesgo de cáncer de mama y próstata. Igualmente, se ha identificado una menor incidencia de Alzheimer.</p>
+            <p>Factores contribuyentes: La dieta tradicional de Okinawa incluye alimentos como el boniato okinawense, la soja, la artemisa, la cúrcuma y el goya (melón amargo), lo que contribuye a una vida larga y saludable.</p>
+            <h3>Península de Nicoya, Costa Rica</h3>
+            <p>Aunque no se especifican tasas de demencia, los habitantes de Nicoya tienen la tasa de mortalidad de mediana edad más baja del mundo y la segunda concentración más alta de hombres centenarios.</p>
+            <p>Factores contribuyentes: La longevidad en Nicoya se atribuye a sólidas comunidades religiosas, profundas redes sociales y hábitos de actividad física regular de baja intensidad. </p>
+            <h3>Cerdeña, Italia</h3>
+            <p>No se proporcionan datos específicos sobre las tasas de demencia en Cerdeña en las fuentes consultadas.</p>
+            <p>Factores contribuyentes: La región de Ogliastra en Cerdeña cuenta con la mayor concentración de hombres centenarios del mundo. Su población consume una dieta baja en proteínas, asociada a menores tasas de diabetes, cáncer y mortalidad en menores de 65 años.</p>
+            <h3> Loma Linda, California, EE.UU.</h3>
+            <p>No se especifican datos sobre las tasas de demencia en Loma Linda en las fuentes consultadas.</p>
+            <p>Factores contribuyentes: La comunidad adventista del séptimo día en Loma Linda sigue una dieta mayormente vegetariana y mantiene hábitos saludables, lo que contribuye a una esperanza de vida notablemente alta en comparación con otros estadounidenses.</p>
+    
+        </div>
+    </div>
+    <script>
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('.info-section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    if (section.style.display === 'block') {
+                        section.style.display = 'none';
+                    } else {
+                        sections.forEach(sec => sec.style.display = 'none');
+                        section.style.display = 'block';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
